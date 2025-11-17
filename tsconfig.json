@@ -13,7 +13,6 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
-    "baseUrl": "",
     "plugins": [
       {
         "name": "next"
@@ -21,9 +20,7 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@/components": ["./app/components/*"],
-      "@/layouts": ["./app/layouts/*"],
-      "@/pages": ["./app/pages/*"]
+      "@/components/*": ["./app/components/*"]
     }
   },
   "include": [
