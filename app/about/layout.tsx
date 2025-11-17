@@ -1,6 +1,5 @@
-import NavBar from "@/components/nav-bar";
-import Footer from "@/components/footer";
-import ScrollToTop from "@/components/scroll-to-top";
+import NavBar from "@/components/common/nav-bar";
+import Footer from "@/components/common/footer";
 
 export default function AboutLayout({
   children,
@@ -11,8 +10,6 @@ export default function AboutLayout({
     <div className="min-h-screen flex flex-col">
       <NavBar />
       {children}
-      <ScrollToTop />
-      <Footer />
     </div>
   );
 }
