@@ -1,14 +1,21 @@
+import Image from "next/image";
+import pic from "@/assets/images/sample.png";
+
 export default function Profile() {
+  const itemClass = `py-2 px-6 rounded-full border border-blue-400`;
   return (
-    <div className="w-full bg-lime-100">
-      <div className="m-2 p-5">title</div>
-      <div className="grid grid-cols-3 gap-4">
-        <div className="p-3 bg-blue-500 rounded-4xl">이름</div>
-        <div className="p-3 bg-blue-500 rounded-4xl">생년월일</div>
-        <div className="p-3 bg-blue-500 rounded-4xl">주소</div>
-        <div className="p-3 bg-blue-500 rounded-4xl">전화</div>
-        <div className="p-3 bg-blue-500 rounded-4xl">이메일</div>
-        <div className="p-3 bg-blue-500 rounded-4xl">학력</div>
+    <div className="w-full h-full py-10 flex">
+      <div className="w-1/6 flex items-center justify-center">
+        <div className="h-32 w-32 rounded-full overflow-hidden border border-black/50 bg-white">
+          <Image src={pic} alt="sample" />
+        </div>
+      </div>
+      <div className="w-5/6">
+        <div className="flex flex-col gap-2">
+          <div className={itemClass}>정유진</div>
+          <div className={itemClass}>92.08.02</div>
+          <div className={itemClass}>yjin.jeong982@gmail.com</div>
+        </div>
       </div>
     </div>
   );

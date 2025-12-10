@@ -21,6 +21,7 @@ export async function getExpData(): Promise<Experience[]> {
 
     return rows;
   } catch (error) {
+    console.log(error);
     throw new Error("Failed to fetch");
   }
 }

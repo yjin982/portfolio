@@ -1,18 +1,16 @@
 export default function Skills() {
   return (
-    <div className="w-full bg-violet-100">
-      <div>
-        <div className="py-5 text-4xl font-moirai">Skills</div>
-        <div className="flex gap-3">
-          <div className="rounded-2xl border border-amber-200 bg-white p-2">
-            JavaScript
-          </div>
-          <div className="rounded-2xl border border-amber-200 bg-white p-2">
-            Vue.js
-          </div>
-          <div className="rounded-2xl border border-amber-200 bg-white p-2">
-            Vite
-          </div>
+    <div className="w-full h-full py-10 ">
+      <div className="py-5 text-3xl font-black-han">Skills</div>
+      <div className="flex gap-4">
+        <div className="rounded-md bg-white p-2 my-2 text-sm font-bold">
+          JavaScript
+        </div>
+        <div className="rounded-md bg-white p-2 my-2 text-sm font-bold">
+          Vue.js
+        </div>
+        <div className="rounded-md bg-white p-2 my-2 text-sm font-bold">
+          Vite
         </div>
       </div>
     </div>

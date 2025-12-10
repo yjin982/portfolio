@@ -9,10 +9,6 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 }
-/*
---font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-*/
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -22,9 +18,23 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: var(--font-noto-sans), Arial, Helvetica, sans-serif;
+  background: var(--background);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.07) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.07) 2px, transparent 2px),
+    linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+@layer base {
+  hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #d1d5db; /* gray-300 */
+    margin: 1rem 0;
+  }
 }
 
 /* 폰트 유틸리티 클래스 */
@@ -33,11 +43,15 @@ body {
     font-family: var(--font-noto-sans), sans-serif;
   }
 
-  .font-moirai {
-    font-family: var(--font-moirai-one), cursive;
+  .font-dohyeon {
+    font-family: var(--font-do-hyeon), sans-serif;
   }
 
   .font-black-han {
     font-family: var(--font-black-han-sans), sans-serif;
+  }
+
+  .font-bagel {
+    font-family: var(--font-bagel-fat-one), sans-serif;
   }
 }

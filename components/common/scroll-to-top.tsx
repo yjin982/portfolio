@@ -31,7 +31,7 @@ export default function ScrollToTop() {
   return (
     <div>
       <button
-        className={`fixed right-10 bottom-5 bg-gray-500 text-white px-2 py-2 rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300
+        className={`fixed right-10 bottom-5 bg-sky-200 hover:bg-sky-300 text-blue-700 dark:text-white px-2 py-2 rounded-full shadow-lg  transition-all duration-300
             ${isButtonVisible ? "opacity-100" : "opacity-0"}`}
         onClick={scrollToTop}
       >
