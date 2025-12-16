@@ -25,7 +25,11 @@
     "baseline-browser-mapping": "^2.9.5",
     "eslint": "^9",
     "eslint-config-next": "16.0.3",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "license": "MIT",
+  "author": "YooJin Jeong <yjin.jeong982@gmail.com>"
 }

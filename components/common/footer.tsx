@@ -2,8 +2,8 @@
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 border-t border-gray-200">
-      <div className="max-w-6xl mx-auto px-6 py-6 text-center text-gray-600 text-sm">
+    <footer className="bg-gray-100 border border-slate-900 rounded-xl p-2 absolute bottom-2 left-4 max-width">
+      <div className="text-center text-gray-600 text-sm">
         ©2025 Yu-Jin Jeong. All Rights Reserved.
       </div>
     </footer>

@@ -1,14 +1,15 @@
+import "./globals.css";
+
 import type { Metadata } from "next";
 import {
-  Noto_Sans_KR,
-  Do_Hyeon,
-  Black_Han_Sans,
   Bagel_Fat_One,
+  Black_Han_Sans,
+  Do_Hyeon,
+  Noto_Sans_KR,
 } from "next/font/google";
-import "./globals.css";
-import ProgressBar from "@/components/common/scroll-progress-bar";
-import ScrollToTop from "@/components/common/scroll-to-top";
+
 import Footer from "@/components/common/footer";
+import Header from "@/components/common/header";
 
 const notoSans = Noto_Sans_KR({
   variable: "--font-noto-sans",
@@ -39,21 +40,22 @@ export const metadata: Metadata = {
   description: "for portfolio",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout(props: { children: React.ReactNode }) {
+  if (typeof window !== "undefined") {
+    localStorage.setItem("theme", "light");
+  }
+
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
         className={`${notoSans.variable} ${doHyeon.variable} ${blackHanSans.variable} ${bagelFatOne.variable} antialiased
-          h-screen`}
+          h-dvh w-dvw p-8`}
       >
-        <ProgressBar />
-        {children}
-        <ScrollToTop />
-        <Footer />
+        <main className="border-2 rounded-xl border-slate-950 w-full h-full px-4 pb-2 relative">
+          <Header />
+          <div className="absolute top-20 left-0 px-4">{props.children}</div>
+          <Footer />
+        </main>
       </body>
     </html>
   );
