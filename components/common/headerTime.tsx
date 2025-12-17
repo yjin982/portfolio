@@ -1,5 +1,6 @@
 "use client";
 
+import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 
 export default function HeaderTime() {
@@ -17,18 +18,9 @@ export default function HeaderTime() {
 
   // Format: YYYY MMM Day DD HH:mm:ss AM/PM
   const formatTime = (date: Date) => {
-    const options: Intl.DateTimeFormatOptions = {
-      year: "numeric",
-      month: "short",
-      weekday: "short",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: true,
-    };
+    const now = dayjs(date).format("ddd MMM DD hh:mm:ss A");
 
-    return date.toLocaleString("en-US", options);
+    return now;
   };
 
   return (

@@ -10,6 +10,7 @@ import {
 
 import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
+import MusicPlayer from "@/components/common/musicPlayer";
 
 const notoSans = Noto_Sans_KR({
   variable: "--font-noto-sans",
@@ -53,6 +54,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       >
         <main className="border-2 rounded-xl border-slate-950 w-full h-full px-4 pb-2 relative">
           <Header />
+          <MusicPlayer />
           <div className="absolute top-20 left-0 px-4">{props.children}</div>
           <Footer />
         </main>
