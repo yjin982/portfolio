@@ -18,7 +18,7 @@ export default function HeaderTime() {
 
   // Format: YYYY MMM Day DD HH:mm:ss AM/PM
   const formatTime = (date: Date) => {
-    const now = dayjs(date).format("ddd MMM DD hh:mm:ss A");
+    const now = dayjs(date).format("ddd MMM DD. hh:mm A");
 
     return now;
   };

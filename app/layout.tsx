@@ -54,8 +54,9 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       >
         <main className="border-2 rounded-xl border-slate-950 w-full h-full px-4 pb-2 relative">
           <Header />
-          <MusicPlayer />
-          <div className="absolute top-20 left-0 px-4">{props.children}</div>
+          <div className="absolute top-20 left-0 px-4 w-full h-full">
+            {props.children}
+          </div>
           <Footer />
         </main>
       </body>
