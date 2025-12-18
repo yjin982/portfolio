@@ -2,7 +2,6 @@
 import {
   Award,
   Briefcase,
-  CircleSmall,
   FileUser,
   GraduationCap,
   LibraryBig,
@@ -10,18 +9,28 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-import Career from "@/components/common/career";
-import Certificate from "@/components/common/certificate";
-import Education from "@/components/common/education";
-import Profile from "@/components/common/profile";
-import Projects from "@/components/common/projects";
-import Skills from "@/components/common/skills";
+import Dock from "@/components/common/dock";
+import Window from "@/components/common/window";
+import Career from "@/components/contents/career";
+import Certificate from "@/components/contents/certificate";
+import Education from "@/components/contents/education";
+import Profile from "@/components/contents/profile";
+import Projects from "@/components/contents/projects";
+import Skills from "@/components/contents/skills";
+
+type WindowState = "open" | "minimized" | "closed";
+
+interface Section {
+  component: React.ComponentType;
+  name: string;
+  icon: React.ComponentType<{ size: number }>;
+  label: string;
+}
 
 export default function Page() {
-  const [activeSection, setActiveSection] = useState<string | null>("profile");
   const iconSize = 40;
 
-  const sections = [
+  const sections: Section[] = [
     { component: Profile, name: "profile", icon: FileUser, label: "Profile" },
     { component: Skills, name: "skills", icon: Sword, label: "Skills" },
     { component: Career, name: "career", icon: Briefcase, label: "Career" },
@@ -45,39 +54,64 @@ export default function Page() {
     },
   ];
 
-  const handleClick = (sectionName: string) => {
-    setActiveSection(sectionName);
+  const [windowStates, setWindowStates] = useState<Record<string, WindowState>>(
+    sections.reduce(
+      (acc, section) => ({ ...acc, [section.name]: "closed" }),
+      {}
+    )
+  );
+
+  const handleIconClick = (sectionName: string) => {
+    setWindowStates((prev) => ({
+      ...prev,
+      [sectionName]: "open",
+    }));
   };
 
-  const handleClose = () => {
-    setActiveSection(null);
+  const handleClose = (sectionName: string) => {
+    setWindowStates((prev) => ({
+      ...prev,
+      [sectionName]: "closed",
+    }));
   };
 
-  const ActiveComponent = sections.find(
-    (s) => s.name === activeSection
-  )?.component;
+  const handleMinimize = (sectionName: string) => {
+    setWindowStates((prev) => ({
+      ...prev,
+      [sectionName]: "minimized",
+    }));
+  };
+
+  const handleRestore = (sectionName: string) => {
+    setWindowStates((prev) => ({
+      ...prev,
+      [sectionName]: "open",
+    }));
+  };
+
+  const openWindows = sections.filter(
+    (section) => windowStates[section.name] === "open"
+  );
+
+  const minimizedWindows = sections.filter(
+    (section) => windowStates[section.name] === "minimized"
+  );
 
   return (
     <div>
-      {/* 새 창 */}
-      {activeSection && (
-        <div className="z-40 absolute top-0 left-[2%] w-[80%] h-[80%] border rounded-xl bg-white dark:bg-slate-800 flex flex-col">
-          <div className="border-b flex justify-start items-center p-2 shrink-0">
-            <button onClick={handleClose}>
-              <CircleSmall color="red" fill="red" size={20} />
-            </button>
-            <button>
-              <CircleSmall color="orange" fill="orange" size={20} />
-            </button>
-            <button className="grow">
-              <CircleSmall color="green" fill="green" size={20} />
-            </button>
-          </div>
-          <div className="p-2 overflow-y-scroll flex-1 scrollbar">
-            {ActiveComponent && <ActiveComponent />}
-          </div>
-        </div>
-      )}
+      {/* 열린 창들 */}
+      {openWindows.map((section, index) => (
+        <Window
+          key={section.name}
+          name={section.name}
+          label={section.label}
+          icon={section.icon}
+          component={section.component}
+          onClose={() => handleClose(section.name)}
+          onMinimize={() => handleMinimize(section.name)}
+          initialPosition={{ x: 220 + index * 30, y: 20 + index * 30 }}
+        />
+      ))}
 
       {/* 아이콘 목록 */}
       <div className="absolute top-0 right-10 grid grid-cols-1 gap-4 text-sm">
@@ -86,8 +120,8 @@ export default function Page() {
           return (
             <button
               key={section.name}
-              onClick={() => handleClick(section.name)}
-              className="flex flex-col items-center justify-center hover:opacity-70 cursor-pointer"
+              onClick={() => handleIconClick(section.name)}
+              className="flex flex-col items-center justify-center hover:opacity-70 cursor-pointer text-black dark:text-white"
             >
               <Icon size={iconSize} />
               {section.label}
@@ -95,6 +129,9 @@ export default function Page() {
           );
         })}
       </div>
+
+      {/* Dock (최소화된 목록) */}
+      <Dock minimizedWindows={minimizedWindows} onRestore={handleRestore} />
     </div>
   );
 }

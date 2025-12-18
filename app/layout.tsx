@@ -7,10 +7,13 @@ import {
   Do_Hyeon,
   Noto_Sans_KR,
 } from "next/font/google";
+import Script from "next/script";
 
+import { themeScript } from "@/assets/scripts/theme";
 import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
 import MusicPlayer from "@/components/common/musicPlayer";
+import { getServerTheme } from "@/utils/theme";
 
 const notoSans = Noto_Sans_KR({
   variable: "--font-noto-sans",
@@ -41,20 +44,25 @@ export const metadata: Metadata = {
   description: "for portfolio",
 };
 
-export default function RootLayout(props: { children: React.ReactNode }) {
-  if (typeof window !== "undefined") {
-    localStorage.setItem("theme", "light");
-  }
+export default async function RootLayout(props: { children: React.ReactNode }) {
+  const defaultTheme = await getServerTheme();
+  // const defaultTheme = "light"; // 또는 cookies로 저장된 값
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en" data-theme={defaultTheme}>
       <body
         className={`${notoSans.variable} ${doHyeon.variable} ${blackHanSans.variable} ${bagelFatOne.variable} antialiased
           h-dvh w-dvw p-8`}
       >
+        <Script
+          id="theme-script"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: themeScript }}
+        />
         <main className="border-2 rounded-xl border-slate-950 w-full h-full px-4 pb-2 relative">
           <Header />
-          <div className="absolute top-20 left-0 px-4 w-full h-full">
+          <div className="absolute top-20 left-0 bottom-0 inset-0 px-4 w-full">
+            <MusicPlayer />
             {props.children}
           </div>
           <Footer />

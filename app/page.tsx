@@ -1,56 +1,14 @@
-import Career from "@/components/common/career";
-import Certificate from "@/components/common/certificate";
-import Education from "@/components/common/education";
-import Profile from "@/components/common/profile";
-import Projects from "@/components/common/projects";
-import Skills from "@/components/common/skills";
-
+import Link from "next/link";
 export default function Page() {
-  const sections = [
-    { component: Profile, name: "profile" },
-    { component: Skills, name: "skills" },
-    { component: Career, name: "career" },
-    { component: Projects, name: "projects" },
-    { component: Education, name: "education" },
-    { component: Certificate, name: "certificate" },
-  ];
-
   return (
-    <>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
-      </p>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
-      </p>
-    </>
+    <div className="absolute top-0 left-5 right-5 bottom-0 inset-0">
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <Link href="/home">
+          <h1 className="animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-(--cursor-color) pr-5 text-5xl text-black dark:text-white font-bold">
+            Hello World
+          </h1>
+        </Link>
+      </div>
+    </div>
   );
-
-  // return (
-  //   <main className="w-full max-w-7xl mx-auto">
-  //     {sections.map(({ component: Component, name }, index) => {
-  //       return (
-  //         <section key={name} className="w-full h-full max-h-screen">
-  //           <Component />
-  //         </section>
-  //       );
-  //     })}
-  //   </main>
-  // );
 }

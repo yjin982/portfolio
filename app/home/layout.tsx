@@ -1,5 +1,3 @@
-import MusicPlayer from "@/components/common/musicPlayer";
-
 export default function HomeLayout({
   children,
 }: Readonly<{
@@ -7,8 +5,9 @@ export default function HomeLayout({
 }>) {
   return (
     <>
-      <MusicPlayer />
-      <div className="absolute top-0 left-55 inset-0">{children}</div>
+      <div className="absolute top-0 left-5 right-5 bottom-0 inset-0">
+        {children}
+      </div>
     </>
   );
 }

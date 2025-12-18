@@ -1,42 +1,91 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-/* 다크모드 */
+/* 1. 커스텀 변형 정의 */
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+/* 2. 테마 설정 (폰트 및 애니메이션) */
+@theme {
+  /* 애니메이션 */
+  @keyframes typing {
+    0% {
+      width: 0%;
+      visibility: hidden;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+    100% {
+      border-color: var(--cursor-color);
+    }
+  }
+  --animate-typing: typing 2s steps(20) infinite alternate, blink 0.7s infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* 3. 색상 팔레트 정의 (Slate & Sky 조합) */
+:root {
+  /* Light Mode (Pale Blue-ish White) */
+  --background: #f8fafc; /* slate-50 */
+  --foreground: #0f172a; /* slate-900 */
+  --grid-major: rgba(148, 163, 184, 0.12); /* slate-400 */
+  --grid-minor: rgba(148, 163, 184, 0.06);
+  --cursor-color: #0284c7; /* sky-600 */
+  --hr-color: #e2e8f0; /* slate-200 */
+  --scrollbar-track: #f1f5f9;
+  --scrollbar-thumb: #cbd5e1;
+}
+
+[data-theme="dark"] {
+  /* Dark Mode (Deep Navy Slate) */
+  --background: #020617; /* slate-950 */
+  --foreground: #f1f5f9; /* slate-100 */
+  --grid-major: rgba(51, 65, 85, 0.3); /* slate-700 */
+  --grid-minor: rgba(51, 65, 85, 0.15);
+  --cursor-color: #38bdf8; /* sky-400 */
+  --hr-color: #1e293b; /* slate-800 */
+  --scrollbar-track: #0f172a;
+  --scrollbar-thumb: #334155;
+}
+
+/* 4. Base 레이아웃 */
+@layer base {
+  body {
+    font-family: var(--font-noto);
+    background-color: var(--background);
+    color: var(--foreground);
+    /* 통합된 배경 격자 스타일 */
+    background-image: linear-gradient(var(--grid-major) 2px, transparent 2px),
+      linear-gradient(90deg, var(--grid-major) 2px, transparent 2px),
+      linear-gradient(var(--grid-minor) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    min-height: 100vh;
+  }
+
+  hr {
+    border-top: 1px solid var(--hr-color);
+    margin: 1rem 0;
   }
 }
 
-body {
-  font-family: var(--font-noto-sans), Arial, Helvetica, sans-serif;
-  background: var(--background);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.07) 2px, transparent 2px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.07) 2px, transparent 2px),
-    linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
-}
-
-@layer base {
-  hr {
-    width: 100%;
-    border: none;
-    border-top: 1px solid #d1d5db; /* gray-300 */
-    margin: 1rem 0;
+/* 5. 유틸리티 */
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scrollbar::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 10px;
   }
 }
 
@@ -56,28 +105,5 @@ body {
 
   .font-bagel {
     font-family: var(--font-bagel-fat-one), sans-serif;
-  }
-}
-/* 스크롤바 설정 */
-@layer utilities {
-  .scrollbar::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  .scrollbar::-webkit-scrollbar-track {
-    border-radius: 100vh;
-    background: #e4e4e4;
-    margin-bottom: 5px;
-    margin-right: 5px;
-  }
-
-  .scrollbar::-webkit-scrollbar-thumb {
-    background: #c8c8c8;
-    border-radius: 100vh;
-  }
-
-  .scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #c8c8c8;
   }
 }
