@@ -5,25 +5,50 @@
 
 /* 2. 테마 설정 (폰트 및 애니메이션) */
 @theme {
-  /* 애니메이션 */
+  /* 애니메이션 정의 */
   @keyframes typing {
     0% {
-      width: 0%;
-      visibility: hidden;
+      width: 0;
+      padding-right: 0;
+      border-right: 4px solid transparent;
+    }
+    /* 애니메이션이 시작되는 순간(0.1%)에 보더와 패딩을 부여 */
+    0.1% {
+      padding-right: 1.25rem; /* pr-5 (20px) */
+      border-right: 4px solid var(--cursor-color);
     }
     100% {
       width: 100%;
+      padding-right: 1.25rem;
+      border-right: 4px solid var(--cursor-color);
     }
   }
   @keyframes blink {
     50% {
       border-color: transparent;
     }
-    100% {
-      border-color: var(--cursor-color);
+  }
+  @keyframes removeBorder {
+    to {
+      border-right-color: transparent;
+      border-right-width: 0;
     }
   }
-  --animate-typing: typing 2s steps(20) infinite alternate, blink 0.7s infinite;
+
+  /* 구조: name | duration | timing-function | delay | iteration | fill-mode
+  */
+
+  /* 1번: 0초에 시작, 1초에 종료 (종료 후 커서 삭제) */
+  --animate-typing1: typing 1s steps(25) forwards, blink 0.7s step-end infinite,
+    removeBorder 0s forwards 1s;
+
+  /* 2번: 1초 대기 후 시작, 2초에 종료 (종료 후 커서 삭제) */
+  --animate-typing2: typing 1s steps(25) 1s forwards,
+    blink 0.7s step-end 1s infinite, removeBorder 0s forwards 2s;
+
+  /* 3번: 2초 대기 후 시작, 3초에 종료 (커서 유지) */
+  --animate-typing3: typing 1s steps(25) 2s forwards,
+    blink 0.7s step-end 2s infinite;
 }
 
 /* 3. 색상 팔레트 정의 (Slate & Sky 조합) */

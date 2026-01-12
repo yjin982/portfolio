@@ -1,5 +1,6 @@
 "use client";
 import { Moon, Sun } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useEffectEvent, useState } from "react";
 
 import HeaderTime from "@/components/common/headerTime";
@@ -39,12 +40,18 @@ export default function Header() {
             <Sun color="red" size={20} className="ml-1 mr-3" />
           </button>
           <div className="flex gap-4">
-            <button className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded">
-              About
-            </button>
-            <button className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded">
+            <Link
+              className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
+              href="/"
+            >
+              Home
+            </Link>
+            <Link
+              className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
+              href="/portfolio"
+            >
               Portfolio
-            </button>
+            </Link>
             <button className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded">
               Contact
             </button>
@@ -66,12 +73,18 @@ export default function Header() {
           )}
         </button>
         <div className="flex gap-4">
-          <button className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded">
-            About
-          </button>
-          <button className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded">
+          <Link
+            className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
+            href="/"
+          >
+            Home
+          </Link>
+          <Link
+            className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
+            href="/portfolio"
+          >
             Portfolio
-          </button>
+          </Link>
           <button className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded">
             Contact
           </button>

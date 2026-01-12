@@ -45,7 +45,7 @@ export default function Window({
 
   return (
     <div
-      className="z-40 absolute w-[60%] h-[80%] border rounded-xl bg-white dark:bg-slate-800 flex flex-col"
+      className="z-40 absolute w-[80%] h-[80%] border rounded-xl bg-white dark:bg-slate-800 flex flex-col"
       style={{ left: `${position.x}px`, top: `${position.y}px` }}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}

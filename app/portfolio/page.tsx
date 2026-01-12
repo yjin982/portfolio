@@ -98,7 +98,7 @@ export default function Page() {
   );
 
   return (
-    <div>
+    <>
       {/* 열린 창들 */}
       {openWindows.map((section, index) => (
         <Window
@@ -109,7 +109,7 @@ export default function Page() {
           component={section.component}
           onClose={() => handleClose(section.name)}
           onMinimize={() => handleMinimize(section.name)}
-          initialPosition={{ x: 220 + index * 30, y: 20 + index * 30 }}
+          initialPosition={{ x: 20 + index * 30, y: 20 + index * 30 }}
         />
       ))}
 
@@ -132,6 +132,6 @@ export default function Page() {
 
       {/* Dock (최소화된 목록) */}
       <Dock minimizedWindows={minimizedWindows} onRestore={handleRestore} />
-    </div>
+    </>
   );
 }

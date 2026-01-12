@@ -12,7 +12,7 @@ import Script from "next/script";
 import { themeScript } from "@/assets/scripts/theme";
 import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
-import MusicPlayer from "@/components/common/musicPlayer";
+// import MusicPlayer from "@/components/common/musicPlayer";
 import { getServerTheme } from "@/utils/theme";
 
 const notoSans = Noto_Sans_KR({
@@ -62,7 +62,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <main className="border-2 rounded-xl border-slate-950 w-full h-full px-4 pb-2 relative">
           <Header />
           <div className="absolute top-20 left-0 bottom-0 inset-0 px-4 w-full">
-            <MusicPlayer />
+            {/* <MusicPlayer /> */}
             {props.children}
           </div>
           <Footer />
