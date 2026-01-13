@@ -62,6 +62,7 @@
   --hr-color: #e2e8f0; /* slate-200 */
   --scrollbar-track: #f1f5f9;
   --scrollbar-thumb: #cbd5e1;
+  --highlight: #fde047;
 }
 
 [data-theme="dark"] {
@@ -74,6 +75,7 @@
   --hr-color: #1e293b; /* slate-800 */
   --scrollbar-track: #0f172a;
   --scrollbar-thumb: #334155;
+  --highlight: #8b5cf6;
 }
 
 /* 4. Base 레이아웃 */
@@ -111,6 +113,13 @@
   .scrollbar::-webkit-scrollbar-thumb {
     background: var(--scrollbar-thumb);
     border-radius: 10px;
+  }
+
+  .low-highlight {
+    background-image: linear-gradient(0, var(--highlight), var(--highlight));
+    background-size: 100% 30%;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
   }
 }
 

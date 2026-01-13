@@ -1,4 +1,4 @@
-import { CircleAlert, CircleMinus, CircleX } from "lucide-react";
+import { CircleAlert, Minus, X } from "lucide-react";
 import { useState } from "react";
 
 interface WindowProps {
@@ -45,26 +45,36 @@ export default function Window({
 
   return (
     <div
-      className="z-40 absolute w-[80%] h-[80%] border rounded-xl bg-white dark:bg-slate-800 flex flex-col"
+      className="z-40 absolute w-[80%] h-[80%] border dark:border-slate-500 rounded-xl bg-white dark:bg-slate-900 flex flex-col"
       style={{ left: `${position.x}px`, top: `${position.y}px` }}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
     >
       <div
-        className="border-b flex justify-start items-center p-2 shrink-0 cursor-move"
+        className="border-b dark:border-b-slate-500 flex items-center p-2 shrink-0 cursor-move"
         onMouseDown={handleMouseDown}
       >
-        <button onClick={onClose}>
-          <CircleX color="white" fill="red" size={20} />
-        </button>
-        <button onClick={onMinimize}>
-          <CircleMinus color="white" fill="orange" size={20} />
-        </button>
-        <button className="mr-6">
-          <CircleAlert color="white" fill="green" size={20} />
-        </button>
-        <span className="text-sm font-semibold grow">{label}</span>
+        <div className="flex justify-center items-center gap-1">
+          <button
+            onClick={onClose}
+            className="rounded-full h-4 w-4 bg-red-500 flex justify-center items-center"
+          >
+            <X color="white" strokeWidth={3} size={12} />
+          </button>
+          <button
+            onClick={onMinimize}
+            className="rounded-full h-4 w-4 bg-orange-400 flex justify-center items-center"
+          >
+            <Minus color="white" strokeWidth={4} size={12} />
+          </button>
+          {/* <button>
+            <CircleAlert color="white" fill="green" size={20} />
+          </button> */}
+        </div>
+        <div className="flex justify-center text-sm font-semibold grow">
+          {label}
+        </div>
       </div>
       <div className="p-2 overflow-y-scroll flex-1 scrollbar">
         <Component />
