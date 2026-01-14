@@ -12,6 +12,7 @@ import Script from "next/script";
 import { themeScript } from "@/assets/scripts/theme";
 import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
+import ScrollToTop from "@/components/common/scroll-to-top";
 // import MusicPlayer from "@/components/common/musicPlayer";
 import { getServerTheme } from "@/utils/theme";
 
@@ -49,23 +50,23 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   // const defaultTheme = "light"; // 또는 cookies로 저장된 값
 
   return (
-    <html lang="en" data-theme={defaultTheme}>
+    <html lang="en" data-theme={defaultTheme} className="scroll-smooth">
       <body
-        className={`${notoSans.variable} ${doHyeon.variable} ${blackHanSans.variable} ${bagelFatOne.variable} antialiased
-          h-dvh w-dvw p-8`}
+        className={`${notoSans.variable} ${doHyeon.variable} ${blackHanSans.variable} ${bagelFatOne.variable} antialiased w-full p-5`}
       >
         <Script
           id="theme-script"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: themeScript }}
         />
-        <main className="border-2 rounded-xl border-slate-950 w-full h-full px-4 pb-2 relative">
+        <main className="px-4 mt-10 mb-4 min-h-screen relative">
           <Header />
-          <div className="absolute top-20 left-0 bottom-0 inset-0 px-4 w-full">
+          <div>
             {/* <MusicPlayer /> */}
             {props.children}
           </div>
           <Footer />
+          <ScrollToTop />
         </main>
       </body>
     </html>

@@ -34,7 +34,7 @@ export default function Header() {
   // 마운트 전에는 기본 아이콘만 표시 (깜빡임 방지)
   if (!mounted) {
     return (
-      <nav className="bg-gray-100 dark:bg-slate-600 border border-slate-900 rounded-xl p-2 absolute top-5 left-4 right-4">
+      <nav className="bg-gray-100 dark:bg-slate-600 border border-slate-900 rounded-xl p-2 fixed top-5 left-8 right-8 z-10">
         <div className="flex justify-between items-center text-sm">
           <button onClick={handleTheme}>
             <Sun color="red" size={20} className="ml-1 mr-3" />
@@ -42,19 +42,40 @@ export default function Header() {
           <div className="flex gap-4">
             <Link
               className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
-              href="/"
+              href="#home"
             >
               Home
             </Link>
             <Link
               className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
-              href="/portfolio"
+              href="#profile"
             >
-              Portfolio
+              Profile
             </Link>
-            <button className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded">
+            <Link
+              className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
+              href="#skills"
+            >
+              Skills
+            </Link>
+            <Link
+              className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
+              href="#career"
+            >
+              Career
+            </Link>
+            <Link
+              className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
+              href="#certification"
+            >
+              Certification
+            </Link>
+            <Link
+              className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
+              href="#contact"
+            >
               Contact
-            </button>
+            </Link>
           </div>
           <HeaderTime />
         </div>
@@ -63,7 +84,7 @@ export default function Header() {
   }
 
   return (
-    <nav className="bg-gray-100 dark:bg-slate-600 border border-slate-900 rounded-xl p-2 absolute top-5 left-4 right-4">
+    <nav className="bg-gray-100 dark:bg-slate-600 border border-slate-900 rounded-xl p-2 fixed top-5 left-8 right-8 z-10">
       <div className="flex justify-between items-center text-sm">
         <button onClick={handleTheme}>
           {theme === "dark" ? (
@@ -75,19 +96,40 @@ export default function Header() {
         <div className="flex gap-4">
           <Link
             className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
-            href="/"
+            href="#home"
           >
             Home
           </Link>
           <Link
             className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
-            href="/portfolio"
+            href="#profile"
           >
-            Portfolio
+            Profile
           </Link>
-          <button className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded">
+          <Link
+            className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
+            href="#skills"
+          >
+            Skills
+          </Link>
+          <Link
+            className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
+            href="#career"
+          >
+            Career
+          </Link>
+          <Link
+            className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
+            href="#certification"
+          >
+            Certification
+          </Link>
+          <Link
+            className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
+            href="#contact"
+          >
             Contact
-          </button>
+          </Link>
         </div>
         <HeaderTime />
       </div>
