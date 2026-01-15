@@ -1,16 +1,22 @@
+/* https://github.com/tandpfun/skill-icons#readme */
+
 export default function Skills() {
   return (
     <>
-      <div className="py-5 text-3xl font-black-han">Skills</div>
-      <div className="flex gap-4">
-        <div className="rounded-md bg-white p-2 my-2 text-sm font-bold">
-          JavaScript
+      <div className="w-full">
+        <div>
+          익숙해요
+          <img
+            src={`https://skillicons.dev/icons?i=vue,js,ts,html,css,vuetify,pinia,vite&theme=light`}
+          />
         </div>
-        <div className="rounded-md bg-white p-2 my-2 text-sm font-bold">
-          Vue.js
+        <div>
+          사용해봤어요
+          <img src="https://skillicons.dev/icons?i=php,laravel,react,tailwind,spring,py,dotnet,docker,github,gitlab" />
         </div>
-        <div className="rounded-md bg-white p-2 my-2 text-sm font-bold">
-          Vite
+        <div>
+          Tools
+          <img src="https://skillicons.dev/icons?i=vscode,webstorm,phpstorm,npm,pnpm,yarn,postman" />
         </div>
       </div>
     </>

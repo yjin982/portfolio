@@ -1,6 +1,6 @@
 "use client";
 
-import { CircleX, Volume2, VolumeX } from "lucide-react";
+import { Volume2, VolumeX, X } from "lucide-react";
 import { useState } from "react";
 
 export default function MusicPlayer() {
@@ -9,12 +9,15 @@ export default function MusicPlayer() {
 
   if (!isVisible) return null;
   return (
-    <div className="absolute top-0 left-5 rounded-xl max-w-60 w-50 h-60 overflow-hidden border bg-gray-100 dark:bg-slate-600">
-      <div className="relative w-full h-full">
-        <div className="absolute top-0 left-0 w-full py-2 px-2 flex gap-2 justify-start items-center text-xs border-b bg-white dark:bg-black">
+    <div className="fixed top-20 right-8 rounded-xl w-50 overflow-hidden border dark:border-slate-500 bg-gray-100 dark:bg-slate-600">
+      <div className="relative w-full h-auto">
+        <div className="w-full p-2 flex gap-2 justify-start items-center text-xs border-b dark:border-b-slate-500 bg-white dark:bg-black">
           {/* close button  */}
-          <button onClick={() => setIsVisible(false)}>
-            <CircleX color="white" fill="red" className="flex-none" size={16} />
+          <button
+            className="rounded-full h-4 w-4 bg-red-500 flex justify-center items-center"
+            onClick={() => setIsVisible(false)}
+          >
+            <X color="white" className="flex-none" size={12} strokeWidth={3} />
           </button>
           {/* title */}
           <span className="font-bagel grow dark:text-white">Lofi Girl</span>
@@ -27,15 +30,18 @@ export default function MusicPlayer() {
           </button>
         </div>
         {/* live video */}
-        <iframe
-          width="100%"
-          src={`https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&mute=${
-            isMuted ? 1 : 0
-          }&controls=0`}
-          title="Lofi Girl"
-          allow="autoplay; encrypted-media"
-          className="absolute top-15 left-0"
-        />
+        <div className="w-full aspect-video hidden md:block">
+          <iframe
+            width="100%"
+            height="100%"
+            src={`https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&mute=${
+              isMuted ? 1 : 0
+            }&controls=0`}
+            title="Lofi Girl"
+            allow="autoplay; encrypted-media"
+            className="w-full h-full"
+          />
+        </div>
       </div>
     </div>
   );

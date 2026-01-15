@@ -35,11 +35,11 @@ export default function Header() {
   if (!mounted) {
     return (
       <nav className="bg-gray-100 dark:bg-slate-600 border border-slate-900 rounded-xl p-2 fixed top-5 left-8 right-8 z-10">
-        <div className="flex justify-between items-center text-sm">
+        <div className="flex flex-wrap justify-between items-center text-sm">
           <button onClick={handleTheme}>
-            <Sun color="red" size={20} className="ml-1 mr-3" />
+            <Sun color="red" size={20} className="m-1" />
           </button>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4 my-1">
             <Link
               className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
               href="#home"
@@ -85,15 +85,15 @@ export default function Header() {
 
   return (
     <nav className="bg-gray-100 dark:bg-slate-600 border border-slate-900 rounded-xl p-2 fixed top-5 left-8 right-8 z-10">
-      <div className="flex justify-between items-center text-sm">
+      <div className="flex flex-wrap justify-between items-center text-sm">
         <button onClick={handleTheme}>
           {theme === "dark" ? (
-            <Moon color="cyan" size={20} className="ml-1 mr-3" />
+            <Moon color="cyan" size={20} className="m-1" />
           ) : (
-            <Sun color="red" size={20} className="ml-1 mr-3" />
+            <Sun color="red" size={20} className="m-1" />
           )}
         </button>
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4 my-1">
           <Link
             className="text-slate-900 hover:text-cyan-700 dark:text-gray-100 dark:hover:text-cyan-300 rounded"
             href="#home"

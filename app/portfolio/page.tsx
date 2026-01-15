@@ -104,11 +104,8 @@ export default function Page() {
         <Window
           key={section.name}
           name={section.name}
-          label={section.label}
-          icon={section.icon}
           component={section.component}
           onClose={() => handleClose(section.name)}
-          onMinimize={() => handleMinimize(section.name)}
           initialPosition={{ x: 20 + index * 30, y: 20 + index * 30 }}
         />
       ))}

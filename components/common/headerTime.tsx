@@ -24,8 +24,8 @@ export default function HeaderTime() {
   };
 
   return (
-    <p className="text-slate-900 dark:text-gray-100">
+    <div className="m-1 text-slate-900 dark:text-gray-100 min-w-[70px]">
       {formatTime(currentTime)}
-    </p>
+    </div>
   );
 }
