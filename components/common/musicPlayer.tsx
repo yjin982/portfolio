@@ -20,7 +20,7 @@ export default function MusicPlayer() {
             <X color="white" className="flex-none" size={12} strokeWidth={3} />
           </button>
           {/* title */}
-          <span className="font-bagel grow dark:text-white">Lofi Girl</span>
+          <span className="font-bold grow dark:text-white">Lofi Girl</span>
           {/* mute on/off */}
           <button
             onClick={() => setIsMuted(!isMuted)}

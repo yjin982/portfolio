@@ -4,6 +4,7 @@ import Link from "next/link";
 import Window from "@/components/common/window";
 import Career from "@/components/contents/career";
 import Certificate from "@/components/contents/certificate";
+import Education from "@/components/contents/education";
 import Profile from "@/components/contents/profile";
 import Skills from "@/components/contents/skills";
 
@@ -35,16 +36,23 @@ export default function Page() {
           <Window component={Skills} name="Skills" />
         </div>
       </section>
-      <section id="career" className="h-svh scroll-m-20">
-        <Career />
+      <section id="career" className="h-svh">
+        <div className="flex flex-col items-center justify-center justify-self-center w-full md:w-[70%] h-svh">
+          <Window component={Career} name="Skills" />
+        </div>
+      </section>
+      <section id="education" className="h-svh">
+        <div className="flex flex-col items-center justify-center justify-self-center w-full md:w-[70%] h-svh">
+          <Window component={Education} name="Education" />
+        </div>
       </section>
       <section id="certification" className="h-svh">
-        <div className="flex flex-col items-center justify-start pt-30 justify-self-center w-full md:w-[70%] h-svh">
+        <div className="flex flex-col items-center justify-center justify-self-center w-full md:w-[70%] h-svh">
           <Window component={Certificate} name="Certification" />
         </div>
       </section>
-      <section id="contact" className="h-svh scroll-m-20">
-        <div>
+      <section id="contact" className="h-svh">
+        <div className="flex flex-col items-center justify-center justify-self-center w-full md:w-[70%] h-svh">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s, when an unknown printer took a galley of type and

@@ -5,7 +5,7 @@ import pic from "@/assets/images/sample.png";
 
 export default function Profile() {
   return (
-    <>
+    <div className="p-6">
       {/* 프로필 사진영역 */}
       <div className="flex items-center justify-center py-5 w-full">
         <div className="w-1/3 flex items-center justify-center">
@@ -22,22 +22,22 @@ export default function Profile() {
         </div>
       </div>
       <div className="py-8 grid grid-cols-3 gap-4 w-full break-all">
-        <div className="border dark:border-slate-500  p-4 rounded-lg text-xl bg-white/70 dark:bg-slate-800/70">
+        <div className="border dark:border-slate-500  p-4 rounded-lg text-xl bg-gray-100 dark:bg-slate-700/70">
           <span className="font-bold low-highlight">Birth</span>
           <br />
           92.08.02
         </div>
-        <div className="border dark:border-slate-500  p-4 rounded-lg text-xl bg-white/70 dark:bg-slate-800/70">
+        <div className="border dark:border-slate-500  p-4 rounded-lg text-xl bg-gray-100 dark:bg-slate-700/70">
           <span className="font-bold low-highlight">Email</span>
           <br />
           yjin.jeong982@gmail.com
         </div>
-        <div className="border dark:border-slate-500  p-4 rounded-lg text-xl bg-white/70 dark:bg-slate-800/70">
+        <div className="border dark:border-slate-500  p-4 rounded-lg text-xl bg-gray-100 dark:bg-slate-700/70">
           <span className="font-bold low-highlight">Phone</span>
           <br />
           010-0000-5722
         </div>
       </div>
-    </>
+    </div>
   );
 }

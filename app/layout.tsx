@@ -14,6 +14,7 @@ import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
 import MusicPlayer from "@/components/common/musicPlayer";
 import ScrollToTop from "@/components/common/scroll-to-top";
+import { ThemeProvider } from "@/components/common/themeContext";
 // import MusicPlayer from "@/components/common/musicPlayer";
 import { getServerTheme } from "@/utils/theme";
 
@@ -51,24 +52,31 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   // const defaultTheme = "light"; // 또는 cookies로 저장된 값
 
   return (
-    <html lang="en" data-theme={defaultTheme} className="scroll-smooth">
+    <html
+      lang="en"
+      data-theme={defaultTheme}
+      className="scroll-smooth"
+      suppressHydrationWarning
+    >
       <body
         className={`${notoSans.variable} ${doHyeon.variable} ${blackHanSans.variable} ${bagelFatOne.variable} antialiased w-full p-5`}
       >
-        <Script
-          id="theme-script"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{ __html: themeScript }}
-        />
-        <main className="px-4 mt-10 mb-4 min-h-screen relative">
-          <Header />
-          <div>
-            <MusicPlayer />
-            {props.children}
-          </div>
-          <Footer />
-          <ScrollToTop />
-        </main>
+        <ThemeProvider>
+          <Script
+            id="theme-script"
+            strategy="beforeInteractive"
+            dangerouslySetInnerHTML={{ __html: themeScript }}
+          />
+          <main className="px-4 mt-10 mb-4 min-h-screen relative">
+            <Header />
+            <div>
+              <MusicPlayer />
+              {props.children}
+            </div>
+            <ScrollToTop />
+            <Footer />
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

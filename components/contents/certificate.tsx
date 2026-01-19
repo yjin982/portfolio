@@ -3,13 +3,7 @@ export default function Certificate() {
     Certification: [
       { Date: "2014.11", name: "정보처리기사" },
       { Date: "2019.10", name: "컴퓨터활용능력 1급" },
-    ],
-    Education: [
-      {
-        Date: "2020.01 ~ 2020.07",
-        Title: "클라우드 기반의 자바 응용 및 빅데이터 분석 ",
-        Desc: "Java Spring Framework 기반의 웹 개발과 R, Python을 이용한 데이터 분석 기초",
-      },
+      { Date: "2020.07", name: "데이터분석 준전문가" },
     ],
   };
   const jsonString = JSON.stringify(data, null, 2);
