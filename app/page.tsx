@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import Window from "@/components/common/window";
 import Career from "@/components/contents/career";
-import Certificate from "@/components/contents/certificate";
+import Certification from "@/components/contents/certification";
 import Education from "@/components/contents/education";
 import Profile from "@/components/contents/profile";
 import Skills from "@/components/contents/skills";
@@ -27,37 +27,37 @@ export default function Page() {
         </div>
       </section>
       <section id="profile" className="h-svh">
-        <div className="flex flex-col items-center justify-center justify-self-center w-full md:w-[70%] h-svh">
+        <div className="flex flex-col items-center justify-center justify-self-center w-full lg:w-[70%] h-svh">
           <Window component={Profile} name="Profile" />
         </div>
       </section>
       <section id="skills" className="h-svh">
-        <div className="flex flex-col items-center justify-center justify-self-center w-full md:w-[70%] h-svh">
+        <div className="flex flex-col items-center justify-center justify-self-center w-full lg:w-[70%] h-svh">
           <Window component={Skills} name="Skills" />
         </div>
       </section>
       <section id="career" className="h-svh">
-        <div className="flex flex-col items-center justify-center justify-self-center w-full md:w-[70%] h-svh">
-          <Window component={Career} name="Skills" />
+        <div className="flex flex-col items-center justify-center justify-self-center w-full lg:w-[70%] h-svh">
+          <Window component={Career} name="Career" />
         </div>
       </section>
       <section id="education" className="h-svh">
-        <div className="flex flex-col items-center justify-center justify-self-center w-full md:w-[70%] h-svh">
+        <div className="flex flex-col items-center justify-center justify-self-center w-full lg:w-[70%] h-svh">
           <Window component={Education} name="Education" />
         </div>
       </section>
       <section id="certification" className="h-svh">
-        <div className="flex flex-col items-center justify-center justify-self-center w-full md:w-[70%] h-svh">
-          <Window component={Certificate} name="Certification" />
+        <div className="flex flex-col items-center justify-center justify-self-center w-full lg:w-[70%] h-svh">
+          <Window component={Certification} name="Certification" />
         </div>
       </section>
       <section id="contact" className="h-svh">
-        <div className="flex flex-col items-center justify-center justify-self-center w-full md:w-[70%] h-svh">
+        <div className="flex flex-col items-center justify-center justify-self-center w-full lg:w-[70%] h-svh">
           Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
+          industry. Lorem Ipsum has been the industry&apos;s standard dummy text
+          ever since the 1500s, when an unknown printer took a galley of type
+          and scrambled it to make a type specimen book. It has survived not
+          only five centuries, but also the leap into electronic typesetting,
           remaining essentially unchanged. It was popularised in the 1960s with
           the release of Letraset sheets containing Lorem Ipsum passages, and
           more recently with desktop publishing software like Aldus PageMaker

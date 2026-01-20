@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import HeaderTime from "@/components/common/headerTime";
 import { useTheme } from "@/components/common/themeContext";
-import { Education } from "@/components/contents/education";
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme();

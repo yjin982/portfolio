@@ -9,7 +9,7 @@ export default function MusicPlayer() {
 
   if (!isVisible) return null;
   return (
-    <div className="fixed top-20 right-8 rounded-xl w-50 overflow-hidden border dark:border-slate-500 bg-gray-100 dark:bg-slate-600">
+    <div className="z-50 fixed top-19 right-8 rounded-xl w-50 overflow-hidden border dark:border-slate-500 bg-gray-100 dark:bg-slate-600">
       <div className="relative w-full h-auto">
         <div className="w-full p-2 flex gap-2 justify-start items-center text-xs border-b dark:border-b-slate-500 bg-white dark:bg-black">
           {/* close button  */}
@@ -30,7 +30,7 @@ export default function MusicPlayer() {
           </button>
         </div>
         {/* live video */}
-        <div className="w-full aspect-video hidden md:block">
+        <div className="w-full aspect-video hidden lg:block">
           <iframe
             width="100%"
             height="100%"

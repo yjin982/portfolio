@@ -14,37 +14,43 @@ export default function Certificate() {
 
     // 들여쓰기가 2칸이면 최상위 키, 4칸 이상이면 하위 키
     const isTopLevel = indent === 0;
-    const keyColor = indent === 2 ? "text-gray-300" : "text-yellow-400";
+    const keyColor =
+      indent === 2
+        ? "font-bold text-black dark:text-white"
+        : "text-yellow-600 dark:text-yellow-400";
     const bracketColor = isTopLevel
-      ? "text-gray-300"
+      ? "text-pink-500"
       : indent === 4
-      ? "text-cyan-400"
-      : "text-pink-400";
+        ? "text-blue-500"
+        : "text-pink-500";
 
     return (
       line
         // 키 (따옴표로 감싼 문자열 뒤에 콜론)
         .replace(/"([^"]+)":/g, `<span class="${keyColor}">"$1"</span>:`)
         // 문자열 값
-        .replace(/: "([^"]*)"/g, ': <span class="text-green-400">"$1"</span>')
+        .replace(/: "([^"]*)"/g, ': <span class="text-green-500">"$1"</span>')
         // 숫자
-        .replace(/: (\d+)/g, ': <span class="text-orange-400">$1</span>')
+        .replace(
+          /: (\d+)/g,
+          ': <span class="text-yellow-600 dark:text-yellow-400">$1</span>',
+        )
         // boolean
-        .replace(/: (true|false)/g, ': <span class="text-purple-400">$1</span>')
+        .replace(/: (true|false)/g, ': <span class="text-purple-500">$1</span>')
         // null
         .replace(/: (null)/g, ': <span class="text-gray-500">$1</span>')
         // 중괄호
         .replace(/([{}\[\]])/g, `<span class="${bracketColor}">$1</span>`)
         // 대괄호,
-        .replace(/([\[\]])/g, `<span class="text-purple-400">$1</span>`)
+        .replace(/([\[\]])/g, `<span class="text-purple-500">$1</span>`)
     );
   };
 
   return (
-    <div className="bg-[#1e1e1e] rounded-lg overflow-hidden font-mono text-sm">
+    <div className="bg-[#f6f8fa] dark:bg-[#1e1e1e] rounded-lg overflow-hidden font-mono text-sm">
       <div className="flex">
         {/* 라인 넘버 */}
-        <div className="bg-[#252526] text-gray-300 py-4 px-3 select-none border-r border-gray-700">
+        <div className="bg-[#f1f3f5] dark:bg-[#252526] text-slate-700 dark:text-slate-300 py-4 px-3 select-none border-r border-gray-700">
           {lines.map((_, i) => (
             <div key={i} className="text-right leading-6">
               {i + 1}
@@ -52,7 +58,7 @@ export default function Certificate() {
           ))}
         </div>
         {/* 코드 */}
-        <pre className="flex-1 p-4 overflow-x-auto text-gray-300">
+        <pre className="flex-1 p-4 overflow-x-auto text-slate-500">
           {lines.map((line, i) => (
             <div
               key={i}
