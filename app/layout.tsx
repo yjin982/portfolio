@@ -12,10 +12,8 @@ import Script from "next/script";
 import { themeScript } from "@/assets/scripts/theme";
 import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
-import MusicPlayer from "@/components/common/musicPlayer";
 import ScrollToTop from "@/components/common/scroll-to-top";
 import { ThemeProvider } from "@/components/common/themeContext";
-// import MusicPlayer from "@/components/common/musicPlayer";
 import { getServerTheme } from "@/utils/theme";
 
 const notoSans = Noto_Sans_KR({
@@ -70,7 +68,6 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           <main className="px-4 mt-10 mb-4 min-h-screen relative">
             <Header />
             <div>
-              <MusicPlayer />
               {props.children}
             </div>
             <ScrollToTop />
