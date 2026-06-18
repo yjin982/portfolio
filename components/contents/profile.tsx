@@ -1,5 +1,5 @@
 "use client";
-import { Calendar, Info, Mail, Phone } from "lucide-react"; // 아이콘 추가
+import { Info } from "lucide-react";
 import Image from "next/image";
 
 import pic from "@/assets/images/sample.png";
@@ -37,39 +37,17 @@ export default function Profile() {
 
           <div className="h-px w-full bg-slate-100 dark:bg-slate-800" />
 
-          <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300 italic">
-            &quot;복잡한 문제를 단순하고 명확한 코드로 해결하는 과정에서
-            즐거움을 느낍니다.&quot;
+          <p className="text-md leading-relaxed text-slate-600 dark:text-slate-300">
+            &quot;4년차 프론트엔드 개발자로, B2B 신규 서비스의 초기 런칭과 운영
+            중인 시스템의 기능 개선을 경험하며 사용자 경험 중심의 UI/UX 설계와
+            안정적인 서비스 구현에 집중해 왔습니다. Vue 기반의 신규
+            프로젝트에서는 핵심 기능을 주도적으로 구현했으며, React/Laravel 기반
+            서비스에서는 운영 효율과 서비스 품질 개선에 기여했습니다. <br />더
+            좋은 코드 품질을 위해 동료들과 솔직하고 발전적인 리뷰를 주고 받는
+            것을 선호합니다. 유관부서와도 원활하게 소통하며, 비즈니스 목표와
+            사용자 경험을 동시에 고려한 코드를 작성하려 노력하고 있습니다.&quot;
           </p>
         </div>
-      </div>
-
-      {/* 하단 상세 정보: 디렉토리/속성 리스트 스타일 */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {[
-          { icon: <Calendar size={18} />, label: "Birth", value: "92.08.02" },
-          {
-            icon: <Mail size={18} />,
-            label: "Email",
-            value: "yjin.jeong982@gmail.com",
-          },
-          { icon: <Phone size={18} />, label: "Phone", value: "010-0000-5722" },
-        ].map((item, idx) => (
-          <div
-            key={idx}
-            className="group p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50"
-          >
-            <div className="flex items-center gap-3 mb-2 text-slate-40">
-              {item.icon}
-              <span className="text-xs font-bold uppercase tracking-wider">
-                {item.label}
-              </span>
-            </div>
-            <div className="text-lg truncate">
-              <span>{item.value}</span>
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   );
