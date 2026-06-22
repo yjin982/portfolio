@@ -45,12 +45,12 @@ export default function Skills() {
       description: "프로젝트 경험이 있으며 협업이 가능한 기술입니다.",
       skills: [
         { name: "React", id: "react" },
+        { name: "Nextjs", id: "nextjs" },
         { name: "Tailwind", id: "tailwind" },
         { name: "PHP", id: "php" },
         { name: "Laravel", id: "laravel" },
         { name: "Spring", id: "spring" },
         { name: "Python", id: "py" },
-        { name: "DotNet", id: "dotnet" },
       ],
     },
     {
