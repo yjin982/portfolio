@@ -12,7 +12,7 @@ import Skills from "@/components/contents/skills";
 export default function Page() {
   return (
     <div className="w-full">
-      <section id="home" className="h-[calc(100svh-5rem)]">
+      <section id="home" className="h-svh">
         <div className="flex w-full h-svh items-center justify-center">
           <Link href="#profile">
             <h1 className="animate-typing1 overflow-hidden whitespace-nowrap text-5xl text-black dark:text-white font-bold">

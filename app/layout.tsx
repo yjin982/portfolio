@@ -10,9 +10,6 @@ import {
 import Script from "next/script";
 
 import { themeScript } from "@/assets/scripts/theme";
-import Footer from "@/components/common/footer";
-import Header from "@/components/common/header";
-import ScrollToTop from "@/components/common/scroll-to-top";
 import { ThemeProvider } from "@/components/common/themeContext";
 import { getServerTheme } from "@/utils/theme";
 
@@ -57,7 +54,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       suppressHydrationWarning
     >
       <body
-        className={`${notoSans.variable} ${doHyeon.variable} ${blackHanSans.variable} ${bagelFatOne.variable} antialiased w-full p-5`}
+        className={`${notoSans.variable} ${doHyeon.variable} ${blackHanSans.variable} ${bagelFatOne.variable} antialiased w-full`}
       >
         <ThemeProvider>
           <Script
@@ -65,14 +62,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
             strategy="beforeInteractive"
             dangerouslySetInnerHTML={{ __html: themeScript }}
           />
-          <main className="px-4 mt-10 mb-4 min-h-screen relative">
-            <Header />
-            <div>
-              {props.children}
-            </div>
-            <ScrollToTop />
-            <Footer />
-          </main>
+          {props.children}
         </ThemeProvider>
       </body>
     </html>

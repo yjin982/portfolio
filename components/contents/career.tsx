@@ -1,5 +1,4 @@
 export default function Career() {
-  // 피드백 내용을 반영하여 수치화 및 기술적 도전을 강조한 진짜 프로젝트 데이터입니다.
   const projects = [
     {
       hash: "a3f9b2c",
