@@ -5,13 +5,13 @@ const contacts = [
   {
     icon: <Mail size={14} />,
     label: "Email",
-    value: "이메일",
-    href: "mailto:이메일",
+    value: "yji.jeong982@gmail.com",
+    href: "mailto:yji.jeong982@gmail.com",
   },
   {
     icon: <Phone size={14} />,
     label: "Phone",
-    value: "전화번호",
+    value: "010-2512-5722",
     href: "#",
   },
 ];
