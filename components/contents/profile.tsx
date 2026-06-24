@@ -2,7 +2,7 @@
 import { Info } from "lucide-react";
 import Image from "next/image";
 
-import pic from "@/assets/images/sample.png";
+import pic from "@/assets/images/pic.jpg";
 
 export default function Profile() {
   return (
@@ -12,7 +12,12 @@ export default function Profile() {
         <div className="relative group">
           <div className="absolute -inset-1 bg-liner-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
           <div className="relative h-40 w-40 rounded-2xl overflow-hidden border-2 border-slate-200 dark:border-slate-700 bg-white">
-            <Image src={pic} alt="sample" className="object-cover" fill />
+            <Image
+              src={pic}
+              alt="profile picture"
+              className="object-cover object-[50%_30%]"
+              fill
+            />
           </div>
           <div
             className="absolute -bottom-2 -right-2 bg-green-500 w-5 h-5 rounded-full border-4 border-white dark:border-slate-900 shadow-sm"
