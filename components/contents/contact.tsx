@@ -5,8 +5,8 @@ const contacts = [
   {
     icon: <Mail size={14} />,
     label: "Email",
-    value: "yji.jeong982@gmail.com",
-    href: "mailto:yji.jeong982@gmail.com",
+    value: "yjin.jeong982@gmail.com",
+    href: "mailto:yjin.jeong982@gmail.com",
   },
   {
     icon: <Phone size={14} />,
