@@ -7,6 +7,7 @@ import Certification from "@/components/contents/certification";
 import Contact from "@/components/contents/contact";
 import Education from "@/components/contents/education";
 import Profile from "@/components/contents/profile";
+import Projects from "@/components/contents/projects";
 import Skills from "@/components/contents/skills";
 
 export default function Page() {
@@ -40,6 +41,11 @@ export default function Page() {
       <section id="career" className="h-svh">
         <div className="flex flex-col items-center justify-center justify-self-center w-full lg:w-[70%] h-svh">
           <Window component={Career} name="Career" />
+        </div>
+      </section>
+      <section id="projects" className="h-svh">
+        <div className="flex flex-col items-center justify-center justify-self-center w-full lg:w-[70%] h-svh">
+          <Window component={Projects} name="Projects" />
         </div>
       </section>
       <section id="education" className="h-svh">

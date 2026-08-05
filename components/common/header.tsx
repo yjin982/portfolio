@@ -16,6 +16,7 @@ export default function Header() {
     { href: "#profile", label: "Profile" },
     { href: "#skills", label: "Skills" },
     { href: "#career", label: "Career" },
+    { href: "#projects", label: "Projects" },
     { href: "#education", label: "Education" },
     { href: "#certification", label: "Certification" },
     { href: "#contact", label: "Contact" },
@@ -26,16 +27,16 @@ export default function Header() {
       {/* 메인 헤더 라인 */}
       <div className="flex justify-between items-center text-sm">
         {/* 테마 토글 버튼 */}
-        <button onClick={toggleTheme} className="flex items-center">
+        <button onClick={toggleTheme} className="flex items-center p-2 shrink-0">
           {theme === "dark" ? (
-            <Moon color="cyan" size={20} className="m-1" />
+            <Moon color="cyan" size={20} />
           ) : (
-            <Sun color="red" size={20} className="m-1" />
+            <Sun color="red" size={20} />
           )}
         </button>
 
-        {/* [데스크톱 메뉴] sm 이상에서만 노출 */}
-        <div className="hidden sm:flex gap-4 my-1 mx-1">
+        {/* [데스크톱 메뉴] md 이상에서만 노출 */}
+        <div className="hidden md:flex gap-2 lg:gap-4 my-1 mx-1">
           {menuItems.map((item) => (
             <Link
               key={item.href}
@@ -48,22 +49,22 @@ export default function Header() {
         </div>
 
         {/* 우측 영역: 시간 & 모바일 햄버거 버튼 */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 min-w-0 shrink justify-end">
           <HeaderTime />
 
-          {/* [모바일 토글 버튼] sm 미만에서만 노출 */}
+          {/* [모바일 토글 버튼] md 미만에서만 노출 */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="block sm:hidden p-1 text-slate-900 dark:text-gray-100"
+            className="block md:hidden p-2 text-slate-900 dark:text-gray-100 shrink-0"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
-      {/* [모바일 서랍 메뉴] sm 미만이고 isOpen이 true일 때만 아래로 펼쳐짐 */}
+      {/* [모바일 서랍 메뉴] md 미만이고 isOpen이 true일 때만 아래로 펼쳐짐 */}
       {isOpen && (
-        <div className="sm:hidden flex flex-col gap-3 mt-3 pt-3 border-t border-slate-300 dark:border-slate-500 animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="md:hidden flex flex-col gap-3 mt-3 pt-3 border-t border-slate-300 dark:border-slate-500 animate-in fade-in slide-in-from-top-2 duration-200">
           {menuItems.map((item) => (
             <Link
               key={item.href}

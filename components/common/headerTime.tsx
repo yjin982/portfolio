@@ -16,16 +16,13 @@ export default function HeaderTime() {
     return () => clearInterval(timerId);
   }, []);
 
-  // Format: YYYY MMM Day DD HH:mm:ss AM/PM
-  const formatTime = (date: Date) => {
-    const now = dayjs(date).format("ddd MMM DD. hh:mm A");
-
-    return now;
-  };
+  const fullTime = dayjs(currentTime).format("ddd MMM DD. hh:mm A");
+  const shortTime = dayjs(currentTime).format("hh:mm A");
 
   return (
-    <div className="m-1 text-slate-900 dark:text-gray-100 min-w-[70px]">
-      {formatTime(currentTime)}
+    <div className="m-1 text-slate-900 dark:text-gray-100 text-nowrap shrink-0">
+      <span className="hidden sm:inline">{fullTime}</span>
+      <span className="sm:hidden">{shortTime}</span>
     </div>
   );
 }
