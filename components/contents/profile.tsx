@@ -10,7 +10,7 @@ export default function Profile() {
       <div className="flex flex-col md:flex-row items-center gap-12">
         {/* 이미지 섹션: 사진첩에서 꺼낸 듯한 프레임 */}
         <div className="relative group">
-          <div className="absolute -inset-1 bg-liner-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+          <div className="absolute -inset-1 bg-linear-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
           <div className="relative h-40 w-40 rounded-2xl overflow-hidden border-2 border-slate-200 dark:border-slate-700 bg-white">
             <Image
               src={pic}

@@ -51,6 +51,19 @@
   /* 3번: 2초 대기 후 시작, 3초에 종료 (커서 유지) */
   --animate-typing3:
     typing 1s steps(25) 2s forwards, blink 0.7s step-end 2s infinite;
+
+  /* 모바일 서랍 메뉴 펼침 */
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  --animate-slide-down: slide-down 0.2s ease-out;
 }
 
 /* 3. 색상 팔레트 정의 (Slate & Sky 조합) */
@@ -83,7 +96,7 @@
 /* 4. Base 레이아웃 */
 @layer base {
   body {
-    font-family: var(--font-noto);
+    font-family: var(--font-noto-sans), sans-serif;
     background-color: var(--background);
     color: var(--foreground);
     /* 통합된 배경 격자 스타일 */

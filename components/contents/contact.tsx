@@ -12,7 +12,7 @@ const contacts = [
     icon: <Phone size={14} />,
     label: "Phone",
     value: "010-2512-5722",
-    href: "#",
+    href: "tel:01025125722",
   },
 ];
 

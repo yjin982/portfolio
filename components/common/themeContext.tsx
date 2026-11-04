@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useSyncExternalStore,
-} from "react";
+import { createContext, useContext, useSyncExternalStore } from "react";
 
 import LocalStorage from "@/utils/localStorage";
 
@@ -18,35 +13,39 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-// localStorage를 외부 store로 구독 (같은 탭 변경은 listeners, 다른 탭 변경은 storage 이벤트)
+// <html data-theme>을 외부 store로 구독
+// (초기값은 테마 스크립트가 localStorage → cookie → 시스템 설정 순으로 결정)
 const listeners = new Set<() => void>();
 
+const notify = () => listeners.forEach((listener) => listener());
+
+// 다른 탭에서 테마를 바꾸면 현재 탭에도 반영
+const handleStorage = (event: StorageEvent) => {
+  if (event.key !== "theme" || !event.newValue) return;
+  document.documentElement.setAttribute("data-theme", event.newValue);
+  notify();
+};
+
 const subscribe = (callback: () => void) => {
+  if (listeners.size === 0) window.addEventListener("storage", handleStorage);
   listeners.add(callback);
-  window.addEventListener("storage", callback);
   return () => {
     listeners.delete(callback);
-    window.removeEventListener("storage", callback);
+    if (listeners.size === 0)
+      window.removeEventListener("storage", handleStorage);
   };
 };
 
 const getSnapshot = (): Theme =>
-  LocalStorage.getItem("theme") === "dark" ? "dark" : "light";
+  document.documentElement.getAttribute("data-theme") === "dark"
+    ? "dark"
+    : "light";
 
 // 서버 렌더링 및 hydration 시에는 light로 시작
 const getServerSnapshot = (): Theme => "light";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-
-  // 초기 마운트 시 HTML 속성 동기화
-  useEffect(() => {
-    const savedTheme = LocalStorage.getItem("theme");
-
-    if (savedTheme && savedTheme !== "light") {
-      document.documentElement.setAttribute("data-theme", savedTheme);
-    }
-  }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -55,7 +54,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     document.cookie = `theme=${newTheme}; path=/; max-age=31536000`;
     LocalStorage.setItem("theme", newTheme);
     document.documentElement.setAttribute("data-theme", newTheme);
-    listeners.forEach((listener) => listener());
+    notify();
   };
 
   return (

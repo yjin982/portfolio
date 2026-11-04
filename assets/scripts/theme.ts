@@ -1,8 +1,11 @@
 export const themeScript = `
 (function() {
   const getCookie = (name) => {
-    const value = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-    return value ? value.pop() : '';
+    const cookie = document.cookie
+      .split(';')
+      .map((c) => c.trim())
+      .find((c) => c.startsWith(name + '='));
+    return cookie ? cookie.slice(name.length + 1) : '';
   };
   
   const stored = localStorage.getItem('theme') || getCookie('theme');
