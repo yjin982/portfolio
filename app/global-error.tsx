@@ -1,6 +1,7 @@
 "use client";
 import "@/app/globals.css";
 
+import Link from "next/link";
 import { useEffect } from "react";
 
 export default function GlobalError({
@@ -28,12 +29,12 @@ export default function GlobalError({
             >
               다시 시도
             </button>
-            <a
+            <Link
               className="px-6 py-3 rounded-lg border border-current hover:opacity-70 transition-opacity"
               href="/"
             >
               홈으로 돌아가기
-            </a>
+            </Link>
           </div>
         </main>
       </body>

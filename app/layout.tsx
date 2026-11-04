@@ -7,15 +7,13 @@ import {
   Do_Hyeon,
   Noto_Sans_KR,
 } from "next/font/google";
-import Script from "next/script";
 
 import { themeScript } from "@/assets/scripts/theme";
 import { ThemeProvider } from "@/components/common/themeContext";
-import { getServerTheme } from "@/utils/theme";
 
+// weight 미지정 시 가변 폰트(100~900) 파일 하나만 로드
 const notoSans = Noto_Sans_KR({
   variable: "--font-noto-sans",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
 
@@ -42,28 +40,17 @@ export const metadata: Metadata = {
   description: "for portfolio",
 };
 
-export default async function RootLayout(props: { children: React.ReactNode }) {
-  const defaultTheme = await getServerTheme();
-  // const defaultTheme = "light"; // 또는 cookies로 저장된 값
-
+export default function RootLayout(props: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      data-theme={defaultTheme}
-      className="scroll-smooth"
-      suppressHydrationWarning
-    >
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        {/* 첫 페인트 전에 data-theme을 설정해 테마 깜빡임 방지 */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body
         className={`${notoSans.variable} ${doHyeon.variable} ${blackHanSans.variable} ${bagelFatOne.variable} antialiased w-full`}
       >
-        <ThemeProvider>
-          <Script
-            id="theme-script"
-            strategy="beforeInteractive"
-            dangerouslySetInnerHTML={{ __html: themeScript }}
-          />
-          {props.children}
-        </ThemeProvider>
+        <ThemeProvider>{props.children}</ThemeProvider>
       </body>
     </html>
   );

@@ -64,7 +64,7 @@ export default function Header() {
 
       {/* [모바일 서랍 메뉴] md 미만이고 isOpen이 true일 때만 아래로 펼쳐짐 */}
       {isOpen && (
-        <div className="md:hidden flex flex-col gap-3 mt-3 pt-3 border-t border-slate-300 dark:border-slate-500 animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="md:hidden flex flex-col gap-3 mt-3 pt-3 border-t border-slate-300 dark:border-slate-500 animate-slide-down">
           {menuItems.map((item) => (
             <Link
               key={item.href}
