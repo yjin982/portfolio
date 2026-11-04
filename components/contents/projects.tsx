@@ -56,6 +56,7 @@ const PROJECTS: Project[] = [
       "Tailwind CSS",
       "Supabase",
       "Yahoo Finance",
+      "Vibe Coding(Claude)",
     ],
     link: {
       git: "https://github.com/yjin982/simple-stock-trading-diary",
@@ -78,6 +79,7 @@ const PROJECTS: Project[] = [
       "Supabase",
       "Motion",
       "Tiptap",
+      "Vibe Coding(Claude)",
     ],
     link: {
       git: "https://github.com/yjin982/micro-challenge",
