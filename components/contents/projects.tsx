@@ -205,10 +205,11 @@ export default function Projects() {
                 <LuGithub />
               </a>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 items-top gap-6 mt-3 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 items-start gap-6 mt-3 mb-6">
               <Image
                 src={activeProject?.image ?? ""}
                 alt={activeProject?.title ?? ""}
+                sizes="(min-width: 1024px) 50vw, (min-width: 768px) 66vw, 100vw"
                 className="col-span-2 rounded-md"
               />
               <p className="mt-1 text-sm">{activeProject?.description}</p>

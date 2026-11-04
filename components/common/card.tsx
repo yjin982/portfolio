@@ -30,6 +30,8 @@ export default function Card({
           src={image}
           alt={imageAlt}
           fill
+          // 그리드 열 수 기준 (lg: 3열, 그 외: 2열)
+          sizes="(min-width: 1024px) 33vw, 50vw"
           className="object-cover group-hover:scale-105 transition-transform duration-300"
         />
       </div>

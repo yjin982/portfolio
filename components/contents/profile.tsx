@@ -17,6 +17,7 @@ export default function Profile() {
               alt="profile picture"
               className="object-cover object-[50%_30%]"
               fill
+              sizes="160px"
             />
           </div>
           <div
