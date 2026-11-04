@@ -14,7 +14,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { LuGithub } from "react-icons/lu";
 
-import pic from "@/assets/images/sample.png";
+import micro from "@/assets/images/micro.png";
 import stock from "@/assets/images/stock.png";
 import Card from "@/components/common/card";
 
@@ -63,12 +63,26 @@ const PROJECTS: Project[] = [
     },
   },
   {
-    id: "lightstick-wiki",
+    id: "micro-challenge",
     icon: Sparkles,
-    title: "Lightstick Wiki",
-    url: "https://lightstick-museum.vercel.app/",
-    image: pic,
-    description: "A wiki for lightstick enthusiasts.",
+    title: "Micro Challenge",
+    url: "https://micro-challenge-one.vercel.app/",
+    image: micro,
+    description:
+      "'밍기적 챌린지'는 매일 200개의 미션 중 하나를 랜덤으로 뽑아 부담 없이 수행하고, 완료 스탬프를 모아 그림일기처럼 기록하는 모바일 우선 웹 애플리케이션입니다. 하루 3회 다시 뽑기, 완료 메모, 월별 스탬프 캘린더와 연속 달성 기록, 공휴일 표시를 제공하며, 익명으로 시작한 뒤 Google 계정 연동으로 기록을 유지할 수 있습니다. 미션 제안과 공지사항 관리를 위한 관리자 화면도 갖추고 있습니다.",
+    tags: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "Motion",
+      "Tiptap",
+    ],
+    link: {
+      git: "https://github.com/yjin982/micro-challenge",
+      url: "https://micro-challenge-one.vercel.app/",
+    },
   },
   // 새 프로젝트 추가 시 여기에만 객체 하나 추가
 ];
